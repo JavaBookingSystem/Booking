@@ -10,24 +10,31 @@ public class Sessions {
     private int id;
     private int idhall;
     private Date date;
+    private double price;
     private int idmovies;
 
-    public Sessions(int idhall, Date date, int idmovies) {
+    public Sessions() {
+    }
+
+    public Sessions(int idhall, Date date, double price, int idmovies) {
 
         this.idhall = idhall;
         this.date = date;
+        this.price = price;
         this.idmovies = idmovies;
     }
 
-    public Sessions(int id, int idhall, Date date, int idmovies) {
+    public Sessions(int id, int idhall, Date date, double price, int idmovies) {
 
         this.id = id;
         this.idhall = idhall;
         this.date = date;
+        this.price = price;
         this.idmovies = idmovies;
     }
 
     public int getId() {
+
         return id;
     }
 
@@ -49,6 +56,14 @@ public class Sessions {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getIdmovies() {

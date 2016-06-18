@@ -1,5 +1,6 @@
 package database;
 
+import java.sql.Blob;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -14,9 +15,14 @@ public class Movies {
     private Date start_date;
     private Date end_date;
     private int idtheatre;
+    private Blob posters;
 
-    public Movies(int id, String name, Time duration, Date start_date, Date end_date, int idtheatre) {
-        this.id = id;
+    public Movies() {
+    }
+
+
+    public Movies(String name, Time duration, Date start_date, Date end_date, int idtheatre) {
+
         this.name = name;
         this.duration = duration;
         this.start_date = start_date;
@@ -24,12 +30,33 @@ public class Movies {
         this.idtheatre = idtheatre;
     }
 
-    public Movies(String name, Time duration, Date start_date, Date end_date, int idtheatre) {
+    public Movies(String name, Time duration, Date start_date, Date end_date, int idtheatre, Blob posters) {
+
         this.name = name;
         this.duration = duration;
         this.start_date = start_date;
         this.end_date = end_date;
         this.idtheatre = idtheatre;
+        this.posters = posters;
+    }
+
+    public Movies(int id, String name, Time duration, Date start_date, Date end_date, int idtheatre, Blob posters) {
+
+        this.id = id;
+        this.name = name;
+        this.duration = duration;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.idtheatre = idtheatre;
+        this.posters = posters;
+    }
+
+    public Blob getPosters() {
+        return posters;
+    }
+
+    public void setPosters(Blob posters) {
+        this.posters = posters;
     }
 
     public int getId() {

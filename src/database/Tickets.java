@@ -11,29 +11,25 @@ public class Tickets {
     private Date date_release;
     private int idsession;
     private int idseats;
-    private double price;
     private boolean ispayed;
     private boolean isbooked;
 
+    public Tickets() {
+    }
 
-    public Tickets(Date date_release, int idsession, int idseats, double price, boolean ispayed, boolean isbooked) {
-
+    public Tickets(Date date_release, int idsession, int idseats, boolean ispayed, boolean isbooked) {
         this.date_release = date_release;
         this.idsession = idsession;
         this.idseats = idseats;
-        this.price = price;
         this.ispayed = ispayed;
         this.isbooked = isbooked;
     }
 
-    public Tickets(int id, Date date_release, int idsession, int idseats,
-                   double price, boolean ispayed, boolean isbooked) {
-
+    public Tickets(int id, Date date_release, int idsession, int idseats, boolean ispayed, boolean isbooked) {
         this.id = id;
         this.date_release = date_release;
         this.idsession = idsession;
         this.idseats = idseats;
-        this.price = price;
         this.ispayed = ispayed;
         this.isbooked = isbooked;
     }
@@ -68,14 +64,6 @@ public class Tickets {
 
     public void setIdseats(int idseats) {
         this.idseats = idseats;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public boolean ispayed() {
