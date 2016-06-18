@@ -23,15 +23,27 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e">
+        <schema name="mydb_cinema" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="a75d6f90-e125-49f4-bc30-9de38cb2712e">
       <console name="Connection" type="STANDARD" />
     </connection>
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.movies" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.theaters" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.sessions" active-filter-id="" />
+  </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/resource/test.sql" connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" current-schema="mydb_cinema" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
