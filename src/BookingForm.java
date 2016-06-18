@@ -110,8 +110,8 @@ public class BookingForm extends JFrame {
     // ассоциация в контейнере названия с изображением
     private Map<String, ImageIcon> createImageMap(String[] list) {
         Map<String, ImageIcon> map = new HashMap<>();
-        Image image;
-        Image resizedImage;
+        Image image = null;
+        Image resizedImage = null;
         try {
             if (nameList != null && nameList[0] != null) {
                 for (int i = 0; i < nameList[0].length; ++i) {
