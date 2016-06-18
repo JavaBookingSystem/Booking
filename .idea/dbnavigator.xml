@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e">
-        <schema name="mydb_cinema" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+        <schema name="mydb_cinema" object-types="table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -75,7 +75,7 @@
           <description value="" />
           <database-type value="MYSQL" />
           <config-type value="BASIC" />
-          <database-version value="9999.0" />
+          <database-version value="5.7" />
           <driver-source value="BUILTIN" />
           <driver-library value="" />
           <driver value="" />
