@@ -14,48 +14,44 @@ public class Movies {
     private Time duration;
     private Date start_date;
     private Date end_date;
-    private int idtheatre;
-    private Blob posters;
+    private String posters;
+    private String description;
 
     public Movies() {
     }
 
-
-    public Movies(String name, Time duration, Date start_date, Date end_date, int idtheatre) {
-
+    public Movies(String name, Time duration, Date start_date, Date end_date, String posters, String description) {
         this.name = name;
         this.duration = duration;
         this.start_date = start_date;
         this.end_date = end_date;
-        this.idtheatre = idtheatre;
-    }
-
-    public Movies(String name, Time duration, Date start_date, Date end_date, int idtheatre, Blob posters) {
-
-        this.name = name;
-        this.duration = duration;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.idtheatre = idtheatre;
         this.posters = posters;
+        this.description = description;
     }
 
-    public Movies(int id, String name, Time duration, Date start_date, Date end_date, int idtheatre, Blob posters) {
-
+    public Movies(int id, String name, Time duration, Date start_date, Date end_date, String posters, String description) {
         this.id = id;
         this.name = name;
         this.duration = duration;
         this.start_date = start_date;
         this.end_date = end_date;
-        this.idtheatre = idtheatre;
         this.posters = posters;
+        this.description = description;
     }
 
-    public Blob getPosters() {
+    public String getPosters() {
         return posters;
     }
 
-    public void setPosters(Blob posters) {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPosters(String posters) {
         this.posters = posters;
     }
 
@@ -99,11 +95,4 @@ public class Movies {
         this.end_date = end_date;
     }
 
-    public int getIdtheatre() {
-        return idtheatre;
-    }
-
-    public void setIdtheatre(int idtheatre) {
-        this.idtheatre = idtheatre;
-    }
 }
