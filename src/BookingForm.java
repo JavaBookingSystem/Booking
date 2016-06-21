@@ -42,7 +42,7 @@ public class BookingForm extends JFrame {
     };
     String[] addresses = {"ул. Дмитрия Ульянова, 16",
             "Подкопаевский пер., 2/6",
-            "Яузская ул., 11/6 строение 11, Москва",
+            "Яузская ул., 11/6 строение 11",
             "ул. Пречистенка, 22/2",
             "Рогожский Вал ул., 7"};
 
@@ -55,6 +55,12 @@ public class BookingForm extends JFrame {
         }
     }
 
+    private void invokeMovieDescription() {
+        MovieDescriptionForm movieDescriptionForm = new MovieDescriptionForm(null, this);
+        setEnabled(false);
+    }
+
+    int selected = -1;
     private void createListOfImages() {
         list1.removeAll();
         list1.setListData(nameList[0]);
@@ -66,8 +72,11 @@ public class BookingForm extends JFrame {
         list1.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                if (! list1.isSelectionEmpty()) {
-                    JOptionPane.showMessageDialog(new JFrame(), "Selected item: " + list1.getSelectedIndex());
+                if (! list1.isSelectionEmpty() && selected != list1.getSelectedIndex()) {
+                    selected = list1.getSelectedIndex();
+//                    JOptionPane.showMessageDialog(new JFrame(), "Selected item: " + list1.getSelectedIndex());
+                    invokeMovieDescription();
+//                    movieDescriptionForm.setModal(true);
                 }
             }
         });
