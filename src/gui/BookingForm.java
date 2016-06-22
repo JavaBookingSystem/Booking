@@ -68,7 +68,6 @@ public class BookingForm extends JFrame {
     }
 
     boolean isListOfMovies = true;
-
     private void changeListView(int index) {
         list1.removeAll();
         if (index == 0) {

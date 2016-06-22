@@ -6,6 +6,8 @@ import database.Sessions;
 import gui.BookingPlace;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,7 +47,10 @@ public class MovieDescriptionForm extends JFrame {
         int i = 0;
         for (Sessions session: sessions) {
             listOfSessions[i] = localDateFormat.format(session.getDate()) +
-                    ", Зал " + session.getIdhall() + ", Цена" + session.getPrice();
+                    ", Зал " + session.getIdhall() + ", Цена: " + session.getPrice() +
+            " Театр: " + dbWorker.getAddressTheater(session.getIdtheater());
+            System.out.println(session.getPrice());
+            ++ i;
         }
         list1.setListData(listOfSessions);
 
@@ -80,9 +85,10 @@ public class MovieDescriptionForm extends JFrame {
         setTitle("Выбор");
     }
 
+
     // вызов формы для выбора места для билета
     private void invokeBookingPlace() {
-        BookingPlace bookingPlace = new BookingPlace(null);
+        BookingPlace bookingPlace = new BookingPlace(null, sessions.get(list1.getSelectedIndex()));
     }
 //     = {
 //            "9:00, Зал 458, ул. Дмитрия Ульянова, 16",

@@ -1,6 +1,7 @@
 package gui;
 
 import database.DBWorker;
+import database.Sessions;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,7 +24,9 @@ public class BookingPlace extends JFrame {
     private ImageIcon busy = null;
     private ImageIcon free = null;
 
-    public BookingPlace(DBWorker dbWorker) {
+    public BookingPlace(DBWorker dbWorker, Sessions sessions) {
+        m = dbWorker.getHalls(sessions.getIdhall()).getNum_rows();
+        n = dbWorker.getHalls(sessions.getIdhall()).getNum_col();
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setSize((int) (0.85 * dimension.getSize().width), (int) (0.85 * dimension.getSize().height));
 

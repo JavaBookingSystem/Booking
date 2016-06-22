@@ -59,13 +59,13 @@ public class Sessions {
     }
 
     public Sessions(int id, int idhall, Date date_time, double price, int idmovies) {
-
         this.id = id;
         this.idhall = idhall;
         this.date_time = date_time;
         this.ticket_price = price;
         this.idmovies = idmovies;
     }
+
 
     public int getId() {
 

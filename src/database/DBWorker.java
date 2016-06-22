@@ -84,6 +84,25 @@ public class DBWorker {
         return theaters;
     }
 
+    public static Halls getHalls(int idi) {
+        Halls halls = null;
+        String query = "select * from halls where id =" + idi;
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                halls = new Halls(rs.getInt("id"), rs.getString("name"),
+                        rs.getInt("num_rows"), rs.getInt("num_col"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return halls;
+    }
+
+
     public static ArrayList<Sessions> getSessions(Movies movie) {
         ArrayList<Sessions> currentMovie = new ArrayList<>();
         int idmov = movie.getId();
