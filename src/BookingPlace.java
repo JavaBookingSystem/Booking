@@ -6,10 +6,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +14,7 @@ import java.util.ArrayList;
  */
 public class BookingPlace extends JFrame {
     private JPanel panel1;
+    private JButton payButton;
     private JTable table = null;
     int m = 20, n = 30;
 
@@ -75,12 +73,24 @@ public class BookingPlace extends JFrame {
         scrollPane.setCorner(JScrollPane.UPPER_LEFT_CORNER,
                 rowTable.getTableHeader());
 
+        payButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                close();
+            }
+        });
+
         fillCells();
         updateRowHeights();
 
         setTitle("Бронь места");
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+
+    private void close() {
+        setVisible(false);
+        dispose();
     }
 
     private boolean bookPlace(int i, int j) {
