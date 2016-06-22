@@ -24,7 +24,6 @@ public class Sessions {
     }
 
     public Date getDate_time() {
-
         return date_time;
     }
 
@@ -107,5 +106,9 @@ public class Sessions {
 
     public void setIdmovies(int idmovies) {
         this.idmovies = idmovies;
+    }
+
+    public String getDateToString() {
+        return date_time.toString();
     }
 }
