@@ -83,4 +83,65 @@ public class DBWorker {
         }
         return theaters;
     }
+
+    public static ArrayList<Sessions> getSessions(Movies movie) {
+        ArrayList<Sessions> currentMovie = new ArrayList<>();
+        int idmov = movie.getId();
+        String query = "select * from sessions where idmovies = idmov";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                currentMovie.add(new Sessions(rs.getInt("id"),rs.getInt("idhall"), rs.getDate("date_time"),
+                        rs.getDouble("price"), rs.getInt("idmovies")));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return currentMovie;
+    }
+
+    public static String getMovieName(Sessions session) {
+        int idmov = session.getIdmovies();
+        String query = "select name from movies where id = idmov";
+        String result = "";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                result = rs.getString("name");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+
+    }
+
+    /*getSeats(Session session) - нужна информация о местах с порядковыми номерами и обязательно флажки как занятые места
+    getMoviesbyDate(Time date) - которые в текущий момент показывают
+    getMoviesbyTheater(Theter theater) выдача фильмов, показываемых текущим кинотеатром
+    */
+    public static ArrayList<Seats> getSeats(Sessions sessions) {
+        ArrayList<Seats> currentSession = new ArrayList<>();
+        int idses = sessions.getIdhall();
+        String query = "select * from seats where idhall = idses";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            //Занятость мест взять из таблицы билетов
+            while (rs.next()) {
+                currentSession.add(new Seats(rs.getInt("id"),rs.getInt("idhall"), rs.getInt("num_row"),
+                        rs.getInt("num_seat")));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return currentSession;
+    }
 }
