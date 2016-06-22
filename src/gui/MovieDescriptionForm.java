@@ -1,9 +1,10 @@
-import database.DBWorker;
+package gui;
 
-import javax.imageio.ImageIO;
+import database.DBWorker;
+import database.Movies;
+import gui.BookingPlace;
+
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,32 +26,25 @@ public class MovieDescriptionForm extends JFrame {
 //        new MovieDescriptionForm(null).setDefaultCloseOperation(EXIT_ON_CLOSE);
 //
 //    }
+    Movies movie = null;
 
-    public MovieDescriptionForm(DBWorker dbWorker, JFrame parentJFrame) {
+    public MovieDescriptionForm(DBWorker dbWorker, Movies movie, JFrame parentJFrame) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         setSize((int) (0.5 * dimension.getSize().width), (int) (0.7 * dimension.getSize().height));
 
         list1.setListData(list);
 
+        this.movie = movie;
         try {
-            label1.setIcon(new ImageIcon(new URL("http://www.kinocenter.ru/upload/iblock/dfd/dfd10a8eec04e5c7f1dce5b125258eb6.jpg")));
+            label1.setIcon(new ImageIcon(new URL(movie.getPosters())));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         textArea1.setWrapStyleWord(true);
         textArea1.setLineWrap(true);
-        textArea1.setText("Режиссер: Нэнси Майерс\n" +
-                "В ролях: Энн Хэтэуэй, Роберт Де Ниро, Рене Руссо.\n" +
-                "Страна: США\n" +
-                "\n" +
-                "\n" +
-                "Мудрая лирическая, с элементами сентиментальности, комедия ЖИЗНИ." +
-                "Когда на съемочной площадке встречаются два обладателя Оскар кино"+
-                " получается как минимум качественным. А участие Роберта Де Ниро гарантирует,"+
-                "что оно будет ещё и смешным. 70-летний вдовец Бен Уитакер обнаруживает, что"+
-                "выход на пенсию — еще не конец. Пользуясь случаем, он становится старшим стажером"+
-                "на сайте моды под руководством Джулс Остин ");
+        textArea1.setText(movie.getDescription() + "\n\n" + "" +
+                "Старт показа: " + movie.getStart_date());
 
         addWindowListener(new WindowAdapter() {
             @Override
@@ -71,6 +65,7 @@ public class MovieDescriptionForm extends JFrame {
         setTitle("Выбор");
     }
 
+    // вызов формы для выбора места для билета
     private void invokeBookingPlace() {
         BookingPlace bookingPlace = new BookingPlace(null);
     }

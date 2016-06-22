@@ -1,3 +1,5 @@
+package gui;
+
 import database.DBWorker;
 
 import javax.imageio.ImageIO;
