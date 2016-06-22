@@ -94,7 +94,7 @@ public class DBWorker {
 
             while (rs.next()) {
                 currentMovie.add(new Sessions(rs.getInt("id"),rs.getInt("idhall"), rs.getDate("date_time"),
-                        rs.getDouble("price"), rs.getInt("idmovies")));
+                        rs.getInt("idmovies"), rs.getInt("idtheater"), rs.getInt("price")));
             }
 
         } catch (SQLException e) {
@@ -104,8 +104,8 @@ public class DBWorker {
     }
 
     public static String getMovieName(Sessions session) {
-        int idmov = session.getIdmovies();
-        String query = "select name from movies where id = idmov";
+        int idsess = session.getIdmovies();
+        String query = "select name from movies where id = " + idsess;
         String result = "";
         try {
             Statement statement = connection.createStatement();
@@ -128,7 +128,7 @@ public class DBWorker {
     public static ArrayList<Seats> getSeats(Sessions sessions) {
         ArrayList<Seats> currentSession = new ArrayList<>();
         int idses = sessions.getIdhall();
-        String query = "select * from seats where idhall = idses";
+        String query = "select * from seats where idhall =" + idses;
         try {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);

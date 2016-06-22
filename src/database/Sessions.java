@@ -10,8 +10,43 @@ public class Sessions {
     private int id;
     private int idhall;
     private Date date_time;
-    private double price;
+    private double ticket_price;
     private int idmovies;
+    private int idtheater;
+
+    public Sessions(int id, int idhall, Date date_time, double ticket_price, int idmovies, int idtheater) {
+        this.id = id;
+        this.idhall = idhall;
+        this.date_time = date_time;
+        this.ticket_price = ticket_price;
+        this.idmovies = idmovies;
+        this.idtheater = idtheater;
+    }
+
+    public Date getDate_time() {
+
+        return date_time;
+    }
+
+    public void setDate_time(Date date_time) {
+        this.date_time = date_time;
+    }
+
+    public int getIdtheater() {
+        return idtheater;
+    }
+
+    public void setIdtheater(int idtheater) {
+        this.idtheater = idtheater;
+    }
+
+    public double getTicket_price() {
+        return ticket_price;
+    }
+
+    public void setTicket_price(double ticket_price) {
+        this.ticket_price = ticket_price;
+    }
 
     public Sessions() {
     }
@@ -20,7 +55,7 @@ public class Sessions {
 
         this.idhall = idhall;
         this.date_time = date_time;
-        this.price = price;
+        this.ticket_price = price;
         this.idmovies = idmovies;
     }
 
@@ -29,7 +64,7 @@ public class Sessions {
         this.id = id;
         this.idhall = idhall;
         this.date_time = date_time;
-        this.price = price;
+        this.ticket_price = price;
         this.idmovies = idmovies;
     }
 
@@ -59,11 +94,11 @@ public class Sessions {
     }
 
     public double getPrice() {
-        return price;
+        return ticket_price;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        this.ticket_price = price;
     }
 
     public int getIdmovies() {
