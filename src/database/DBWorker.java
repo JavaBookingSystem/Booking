@@ -121,6 +121,23 @@ public class DBWorker {
         return result;
     }
 
+    public String getAddressTheater(int idtheaters) {
+        String query = "select address from theaters where id = " + idtheaters;
+        String result = "";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            while (rs.next()) {
+                result = rs.getString("address");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     /*getMoviesbyDate(Time date) - которые в текущий момент показывают
     getMoviesbyTheater(Theter theater) выдача фильмов, показываемых текущим кинотеатром
