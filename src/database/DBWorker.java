@@ -87,7 +87,7 @@ public class DBWorker {
     public static ArrayList<Sessions> getSessions(Movies movie) {
         ArrayList<Sessions> currentMovie = new ArrayList<>();
         int idmov = movie.getId();
-        String query = "select * from sessions where idmovies = idmov";
+        String query = "select * from sessions where idmovies = " + idmov;
         try {
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery(query);
@@ -119,7 +119,6 @@ public class DBWorker {
             e.printStackTrace();
         }
         return result;
-
     }
 
 
