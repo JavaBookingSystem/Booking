@@ -7,3 +7,4 @@ insert into theaters (address, name) values ('Рогожский Вал ул., 7
 delete from theaters where idtheater = 13;
 INSERT INTO theaters (address, name) VALUES ('ул. Маленковская, 9', 'Муви6');
 select * from theaters
+select * from movies
