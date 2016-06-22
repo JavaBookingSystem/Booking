@@ -38,7 +38,7 @@
     <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.movies" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.seats" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.theaters" active-filter-id="EMPTY_FILTER" />
-    <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.sessions" active-filter-id="" />
+    <filter-list connection-id="a75d6f90-e125-49f4-bc30-9de38cb2712e" dataset="mydb_cinema.sessions" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

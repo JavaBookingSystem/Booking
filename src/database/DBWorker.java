@@ -122,8 +122,8 @@ public class DBWorker {
 
     }
 
-    /*getSeats(Session session) - нужна информация о местах с порядковыми номерами и обязательно флажки как занятые места
-    getMoviesbyDate(Time date) - которые в текущий момент показывают
+
+    /*getMoviesbyDate(Time date) - которые в текущий момент показывают
     getMoviesbyTheater(Theter theater) выдача фильмов, показываемых текущим кинотеатром
     */
     public static ArrayList<Seats> getSeats(Sessions sessions) {
@@ -142,6 +142,26 @@ public class DBWorker {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //занятые места взять из билетов
         return currentSession;
+    }
+
+    public static ArrayList<Movies> getMoviesbyTheater(Theaters theater) {
+        ArrayList<Movies> currentMoviesbyTheater = new ArrayList<>();
+        int idth = theater.getId();
+        String query = "select idmovies from sessions where idtheater = idth";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            //Занятость мест взять из таблицы билетов
+            while (rs.next()) {
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return currentMoviesbyTheater;
     }
 }
