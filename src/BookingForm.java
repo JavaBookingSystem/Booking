@@ -57,7 +57,7 @@ public class BookingForm extends JFrame {
 
     private void invokeMovieDescription() {
         MovieDescriptionForm movieDescriptionForm = new MovieDescriptionForm(null, this);
-        setEnabled(true);
+        setEnabled(false);
     }
 
     int selected = -1;
