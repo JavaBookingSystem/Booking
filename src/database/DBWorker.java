@@ -94,7 +94,7 @@ public class DBWorker {
 
             while (rs.next()) {
                 currentMovie.add(new Sessions(rs.getInt("id"),rs.getInt("idhall"), rs.getDate("date_time"),
-                        rs.getInt("idmovies"), rs.getInt("idtheater"), rs.getInt("price")));
+                        rs.getInt("idmovies"), rs.getInt("idtheater"), rs.getInt("ticket_price")));
             }
 
         } catch (SQLException e) {
